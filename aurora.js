@@ -85,19 +85,6 @@ function aurora() {
 		return g[0] * x + g[1] * y;
 	};
 
-	// Für 3D-Gradienten
-	SimplexNoise.prototype.dot3 = function (g, x, y, z) {
-		// Direkte Berechnung ohne reduce
-		return g[0] * x + g[1] * y + g[2] * z;
-	};
-
-	// Für 4D-Gradienten
-	SimplexNoise.prototype.dot4 = function (g, x, y, z, w) {
-		// Direkte Berechnung ohne reduce
-		return g[0] * x + g[1] * y + g[2] * z + g[3] * w;
-	};
-
-
 	SimplexNoise.prototype.noise = function (xin, yin) {
 		var n0, n1, n2;
 		var s = (xin + yin) * this.F2;
