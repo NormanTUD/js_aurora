@@ -382,7 +382,7 @@ function aurora() {
 
 		this.redraw = function () {
 			var now = Date.now();
-			var time = now / 30000;
+			var time = now / 50000;
 
 			context.clearRect(0, 0, width, height);
 
