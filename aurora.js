@@ -361,14 +361,19 @@ function aurora() {
 	var context;
 	var simplex = new SimplexNoise();
 
+	var aurora_object;
+
 	function createAurora() {
-		var canvas = document.createElement("canvas");
+		var canvas = document.getElementById("auroraCanvas");
 		var width = window.innerWidth;
 		var height = window.innerHeight;
 
 		canvas.width = width;
 		canvas.height = height;
-		canvas.id = "auroraCanvas";
+
+		canvas.style.position = "absolute";
+		canvas.style.top = 0;
+		canvas.style.left = 0;
 
 		context = canvas.getContext('2d');
 
@@ -461,18 +466,22 @@ function aurora() {
 	}
 
 	function render() {
-		canvas.redraw();
+		if(aurora_object) {
+			aurora_object.redraw();
+		}
 	}
 
 	function resizeCanvas() {
-		const canvas = document.getElementById('auroraCanvas');
+		var canvas = document.getElementById('auroraCanvas');
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+
+		createAurora();
 	}
 
 	window.addEventListener('resize', resizeCanvas);
 
-	var canvas = createAurora();
+	aurora_object = createAurora();
 	animate();
 }
 
