@@ -368,8 +368,11 @@
 			var context;
 			var simplex = new SimplexNoise();
 
-			function createAurora(width, height) {
+			function createAurora() {
 				var canvas = document.createElement("canvas");
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+
 				canvas.width = width;
 				canvas.height = height;
 
@@ -380,7 +383,7 @@
 
 				this.redraw = function () {
 					var now = Date.now();
-					var time = now / 5000;
+					var time = now / 50000;
 
 					context.clearRect(0, 0, width, height);
 
@@ -467,9 +470,17 @@
 				canvas.redraw();
 			}
 
-			var canvas = createAurora(900, 600);
+			function resizeCanvas() {
+				const canvas = document.getElementById('auroraCanvas');
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+			}
+
+			window.addEventListener('resize', resizeCanvas);
+
+			var canvas = createAurora();
 			animate();
 		</script>
-		<canvas width="900" height="600"></canvas>
+		<canvas id=auroraCanvas"></canvas>
 	</body>
 </html>
