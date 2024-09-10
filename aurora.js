@@ -365,6 +365,9 @@ function aurora() {
 
 	function createAurora() {
 		var canvas = document.getElementById("auroraCanvas");
+		if(!canvas) {
+			return;
+		}
 		var width = window.innerWidth;
 		var height = window.innerHeight;
 
@@ -473,6 +476,9 @@ function aurora() {
 
 	function resizeCanvas() {
 		var canvas = document.getElementById('auroraCanvas');
+		if(!canvas) {
+			return;
+		}
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
 
